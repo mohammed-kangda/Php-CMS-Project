@@ -13,6 +13,7 @@
         $email    = $_POST['email'];
         $password = $_POST['password'];
 
+        // Protecting our site from hacker
         $username = mysqli_real_escape_string($connection,$username);
         $email    = mysqli_real_escape_string($connection,$email);
         $password = mysqli_real_escape_string($connection,$password);
@@ -26,16 +27,28 @@
 
         $row = mysqli_fetch_array($select_randsalt_query);
         $salt = $row['randsalt'];
+        $password = crypt($password,$salt);
 
-        $query = "INSERT INTO `users`(username,user_password,user_email,user_role)
-                  VALUES('$username','$password','$email','Developer')";
-        $register_user_query = mysqli_query($connection,$query);
-        
-        if(!$register_user_query){
-            die("QUERY FAILED : " . mysqli_error($connection));
+        if(!(empty($username)) && !(empty($email)) && !(empty($password))){
+
+            $query = "INSERT INTO `users`(username,user_password,user_email,user_role)
+                      VALUES('$username','$password','$email','Developer')";
+            $register_user_query = mysqli_query($connection,$query);
+            
+            if(!$register_user_query){
+                die("QUERY FAILED : " . mysqli_error($connection));
+            }
+
+            $message = "Your Account Has Been Successfully Created!";
+
+        }else{
+
+            $message = "<h5 class='text-center'>Enter Valid Data</h5>";
+
         }
-
        
+    }else{
+        $message = "";
     }
     
 ?>
@@ -54,6 +67,7 @@
                         <div class="form-wrap">
                         <h1>Register</h1>
                             <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
+                                <h6 class="text-center"><?php echo $message; ?></h6>
                                 <div class="form-group">
                                     <label for="username" class="sr-only">username</label>
                                     <input type="text" name="username" id="username" class="form-control" placeholder="Enter Desired Username">
