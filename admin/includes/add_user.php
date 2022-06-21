@@ -46,7 +46,7 @@
 
     <div class="form-group">
         <select name="user_role" id="user_role">
-            <option value="">--Select Option--</option>
+            <option value="Admin">--Select Option--</option>
             <option value="Developer">Developer</option>
             <option value="Admin">Admin</option>
         </select>

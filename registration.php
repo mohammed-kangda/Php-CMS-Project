@@ -23,6 +23,18 @@
         if(!$select_randsalt_query){
             die("QUERY FAILED : " . mysqli_error($connection));
         }
+
+        $row = mysqli_fetch_array($select_randsalt_query);
+        $salt = $row['randsalt'];
+
+        $query = "INSERT INTO `users`(username,user_password,user_email,user_role)
+                  VALUES('$username','$password','$email','Developer')";
+        $register_user_query = mysqli_query($connection,$query);
+        
+        if(!$register_user_query){
+            die("QUERY FAILED : " . mysqli_error($connection));
+        }
+
        
     }
     
