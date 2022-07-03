@@ -52,7 +52,7 @@
                   echo '<td>'.$comment_date.'</td>
                         <td><a href="comments.php?approve='.$comment_id.'">Approve</a></td>
                         <td><a href="comments.php?unapprove='.$comment_id.'">Unapprove</a></td>
-                        <td><a href="comments.php?delete='.$comment_id.'">Delete</a></td>
+                        <td><a onclick=\'javascript: return confirm("Are You Sure Want To delete?"); \' href="comments.php?delete='.$comment_id.'">Delete</a></td>
                         <td><a href="posts.php?source=edit_post&p_id='.$comment_post_id.'">Edit</a></td>
                     </tr>';
             }

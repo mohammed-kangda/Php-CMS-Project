@@ -53,7 +53,7 @@
                         echo'<td><a href="users.php?change_to_devl='.$user_id.'">Developer</a></td>
                             <td><a href="users.php?change_to_admin='.$user_id.'">Admin</a></td>
                             <td><a href="users.php?source=edit_user&edit_user='.$user_id.'">Edit</a></td>
-                            <td><a href="users.php?delete='.$user_id.'">Delete</a></td>
+                            <td><a onclick=\'javascript: return confirm("Are You Sure Want To delete?"); \' href="users.php?delete='.$user_id.'">Delete</a></td>
                     </tr>';
 
             }
