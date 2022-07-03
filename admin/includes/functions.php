@@ -94,3 +94,14 @@
     }
     
 ?>
+
+
+<!-- Form Submission Issue -->
+<?php 
+    
+    function redirect($location){
+        return header("'Location:$location'");
+        header('Location: posts.php');
+    }
+    
+?>
