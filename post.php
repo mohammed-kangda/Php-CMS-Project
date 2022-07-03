@@ -21,6 +21,15 @@
                 <?php 
                      if(isset($_GET['p_id'])){
                         $the_post_id = $_GET['p_id'];
+
+                        $query = "UPDATE `posts` SET post_view_count = post_view_count + 1
+                                  WHERE post_id = $the_post_id";
+
+                        $post_view_query = mysqli_query($connection,$query);
+
+                        if(!$post_view_query){
+                            die('QUERY FAILED : ' . mysqli_error($connection));
+                        }
                     }
                    
                    $query = "SELECT * FROM `posts` WHERE post_id = '$the_post_id'";
@@ -41,10 +50,10 @@
 
                             <!-- First Blog Post -->
                             <h2>
-                                <a href="">'.$post_title.'</a>
+                                <h2>'.$post_title.'</h2>
                             </h2>
                             <p class="lead">
-                                by <a href="">'.$post_author.'</a>
+                                by <span>'.$post_author.'</span>
                             </p>
                             <p><span class="glyphicon glyphicon-time"></span> '.$post_date.'</p>
                             <hr>

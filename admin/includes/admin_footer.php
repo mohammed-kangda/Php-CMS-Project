@@ -33,9 +33,9 @@
 
             });
 
-            var divBox = "<div id='load-screen'><div id='loading'></div></div>"
+            var divBox = "<div id='load-screen'><div id='loading'></div></div>";
             $('body').prepend(divBox);
-            $('#load-screen').delay(700).fadeOut(600,function(){
+            $('#load-screen').delay(1000).fadeOut(600,function(){
                 $(this).remove();
             })
             

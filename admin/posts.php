@@ -46,15 +46,16 @@
                            
                        ?>
 
-                    </div>
                 </div>
-                <!-- /.row -->
-
+                
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.row -->
 
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
 
 <!-- footer -->
 <?php include 'includes/admin_footer.php' ?>
