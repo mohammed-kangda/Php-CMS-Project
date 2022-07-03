@@ -18,7 +18,7 @@
         $email    = mysqli_real_escape_string($connection,$email);
         $password = mysqli_real_escape_string($connection,$password);
 
-        $query = "SELECT randsalt FROM `users`";
+        $query = "SELECT * FROM `users`";
         $select_randsalt_query = mysqli_query($connection,$query);
 
         if(!$select_randsalt_query){
@@ -27,7 +27,9 @@
 
         $row = mysqli_fetch_array($select_randsalt_query);
         $salt = $row['randsalt'];
-        $password = crypt($password,$salt);
+        $password = $row['user_password'];
+        // encrypting password
+        // $password = crypt($password,$salt);
 
         if(!(empty($username)) && !(empty($email)) && !(empty($password))){
 

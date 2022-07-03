@@ -28,6 +28,21 @@
         $username = $_POST['username'];
         $user_email = $_POST['user_email'];
         $user_password = $_POST['user_password'];
+ 
+ 
+        // encrypting password
+
+        // $query = "SELECT randsalt FROM `users`";
+        // $select_randsalt_query = mysqli_query($connection,$query);
+
+        // if(!$select_randsalt_query){
+        //     die("QUERY FAILED : " . mysqli_error($connection));
+        // }
+
+        // $row = mysqli_fetch_array($select_randsalt_query);
+        // $salt = $row['randsalt'];
+        // $hashed_password = crypt($user_password,$salt);
+         
 
         $query = "UPDATE `users` SET
                   user_firstname = '$user_firstname',user_lastname = '$user_lastname',
